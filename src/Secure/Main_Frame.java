@@ -25,6 +25,7 @@ public class Main_Frame extends javax.swing.JFrame {
         Login l = new Login(this);
         l.setVisible(true);
         apartments_Table2.setVisible(false);
+        tennants_Table2.setVisible(false);
   
     }
     
@@ -44,6 +45,7 @@ public class Main_Frame extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         apartments_Table2 = new Secure.Apartments_Table();
+        tennants_Table2 = new Secure.Tennants_Table();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -111,21 +113,9 @@ public class Main_Frame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(apartments_Table2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 42, Short.MAX_VALUE)
-                .addComponent(apartments_Table2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
+        jPanel1.add(apartments_Table2);
+        jPanel1.add(tennants_Table2);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 51));
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
@@ -193,10 +183,12 @@ public class Main_Frame extends javax.swing.JFrame {
 
     private void Units_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Units_TableActionPerformed
         apartments_Table2.setVisible(true);
+        tennants_Table2.setVisible(false);
     }//GEN-LAST:event_Units_TableActionPerformed
 
     private void Tennants_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tennants_TableActionPerformed
-        // TODO add your handling code here:
+        apartments_Table2.setVisible(false);
+        tennants_Table2.setVisible(true);
     }//GEN-LAST:event_Tennants_TableActionPerformed
 
     private void Transac_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Transac_TableActionPerformed
@@ -257,5 +249,6 @@ public class Main_Frame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton logoutBtn;
+    private Secure.Tennants_Table tennants_Table2;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,11 +14,10 @@ public class Apartments_Table extends javax.swing.JPanel {
     MySqlConnect c;
     
     
-    /**
-     * Creates new form Apartments_Table
-     */
+   
     public Apartments_Table() {
         initComponents();
+        
         c = new MySqlConnect();
          ResultSet r = c.query("SELECT unit_name, description, unit_type, monthly_rate FROM apartment_units");
          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
