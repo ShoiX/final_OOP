@@ -15,7 +15,7 @@ public class MySqlConnect {
     public MySqlConnect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrer", "user", "Mmdapo09!");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrer", "root", "");
             //return conn;
         }catch(Exception e) {
             System.out.println(e);

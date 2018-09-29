@@ -24,6 +24,7 @@ public class Main_Frame extends javax.swing.JFrame {
         
         Login l = new Login(this);
         l.setVisible(true);
+        apartments_Table2.setVisible(false);
   
     }
     
@@ -42,6 +43,7 @@ public class Main_Frame extends javax.swing.JFrame {
         Transac_Table = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        apartments_Table2 = new Secure.Apartments_Table();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -113,11 +115,16 @@ public class Main_Frame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 981, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(apartments_Table2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 42, Short.MAX_VALUE)
+                .addComponent(apartments_Table2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 51));
@@ -185,7 +192,7 @@ public class Main_Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Units_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Units_TableActionPerformed
-        // TODO add your handling code here:
+        apartments_Table2.setVisible(true);
     }//GEN-LAST:event_Units_TableActionPerformed
 
     private void Tennants_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tennants_TableActionPerformed
@@ -244,6 +251,7 @@ public class Main_Frame extends javax.swing.JFrame {
     private javax.swing.JButton Tennants_Table;
     private javax.swing.JButton Transac_Table;
     private javax.swing.JButton Units_Table;
+    private Secure.Apartments_Table apartments_Table2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

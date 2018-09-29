@@ -134,8 +134,8 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        //Main.setVisible(true);
-        //this.dispose();
+        Main.setVisible(true);
+        this.dispose();
         System.out.println(authenticate("admin", "admin"));
     }//GEN-LAST:event_loginBtnActionPerformed
 
