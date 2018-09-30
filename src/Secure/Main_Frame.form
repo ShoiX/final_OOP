@@ -126,9 +126,9 @@
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <SubComponents>
-        <Component class="Secure.Apartments_Table" name="apartments_Table2">
-        </Component>
         <Component class="Secure.Tennants_Table" name="tennants_Table2">
+        </Component>
+        <Component class="Secure.Apartments_Table" name="apartments_Table2">
         </Component>
       </SubComponents>
       <LayoutCode>

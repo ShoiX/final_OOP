@@ -19,6 +19,7 @@ public class Tennants_Table extends javax.swing.JPanel {
   
     public Tennants_Table() {
         initComponents();
+        add_Tenant2.setVisible(false);       
         
          jTable2.removeColumn(jTable2.getColumnModel().getColumn(0));
          jTable2.removeColumn(jTable2.getColumnModel().getColumn(5));
@@ -53,6 +54,8 @@ public class Tennants_Table extends javax.swing.JPanel {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        add_tenant = new javax.swing.JButton();
+        add_Tenant2 = new Secure.Add_Tenant();
 
         setMaximumSize(new java.awt.Dimension(957, 530));
         setPreferredSize(new java.awt.Dimension(957, 530));
@@ -73,6 +76,8 @@ public class Tennants_Table extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.setMaximumSize(new java.awt.Dimension(2147483647, 530));
+        jTable2.setMinimumSize(new java.awt.Dimension(957, 530));
         jTable2.setPreferredSize(new java.awt.Dimension(957, 530));
         jScrollPane2.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
@@ -87,20 +92,54 @@ public class Tennants_Table extends javax.swing.JPanel {
             jTable2.getColumnModel().getColumn(8).setResizable(false);
         }
 
+        add_tenant.setText("Add Tenants");
+        add_tenant.setMaximumSize(new java.awt.Dimension(105, 23));
+        add_tenant.setMinimumSize(new java.awt.Dimension(105, 23));
+        add_tenant.setOpaque(false);
+        add_tenant.setPreferredSize(new java.awt.Dimension(105, 23));
+        add_tenant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_tenantActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(add_tenant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(365, Short.MAX_VALUE)
+                .addComponent(add_Tenant2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(add_Tenant2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(add_tenant, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 55, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void add_tenantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_tenantActionPerformed
+        add_Tenant2.setVisible(true);     
+    }//GEN-LAST:event_add_tenantActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Secure.Add_Tenant add_Tenant2;
+    private javax.swing.JButton add_tenant;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables

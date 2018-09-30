@@ -21,12 +21,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="794" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" pref="957" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="addApartBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="rmvApartBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="459" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jScrollPane1" min="-2" pref="476" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="addApartBtn" pref="37" max="32767" attributes="0"/>
+                  <Component id="rmvApartBtn" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -106,5 +120,15 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="addApartBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add Apartment"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="rmvApartBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remove Apartment"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

@@ -44,8 +44,8 @@ public class Main_Frame extends javax.swing.JFrame {
         Transac_Table = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        apartments_Table2 = new Secure.Apartments_Table();
         tennants_Table2 = new Secure.Tennants_Table();
+        apartments_Table2 = new Secure.Apartments_Table();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -114,8 +114,8 @@ public class Main_Frame extends javax.swing.JFrame {
         );
 
         jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
-        jPanel1.add(apartments_Table2);
         jPanel1.add(tennants_Table2);
+        jPanel1.add(apartments_Table2);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 51));
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
