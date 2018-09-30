@@ -20,16 +20,22 @@ public class Tennants_Table extends javax.swing.JPanel {
     public Tennants_Table() {
         initComponents();
         
+         jTable2.removeColumn(jTable2.getColumnModel().getColumn(0));
+         jTable2.removeColumn(jTable2.getColumnModel().getColumn(5));
+        
          c = new MySqlConnect();
-         ResultSet r = c.query("SELECT firstname, lastname, birthdate, contact_no FROM tenants");
+         ResultSet r = c.query("SELECT id, firstname, lastname, birthdate, contact_no, status, apartment_id FROM tenants");
          DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         try {
          while(r.next()) {
+             String i = r.getString("id");
              String fn = r.getString("firstname");
              String ln = r.getString("lastname");
              String bd = r.getString("birthdate");
              String cn = r.getString("contact_no");
-             model.insertRow(jTable2.getRowCount(), new Object[] {fn, ln, bd, cn, "Edit", "Delete"});
+             String s= r.getString("status");
+             String ai = r.getString("apartment_id");
+             model.insertRow(jTable2.getRowCount(), new Object[] {i, fn, ln, bd, cn, s, ai, "Edit", "Delete"});
          }
         }catch(SQLException ex) {
             System.out.println(ex);
@@ -56,11 +62,11 @@ public class Tennants_Table extends javax.swing.JPanel {
 
             },
             new String [] {
-                "First Name", "Last Name", "Birthdate", "Contact no.", "", ""
+                "id", "First Name", "Last Name", "Birthdate", "Contact no.", "Status", "apartment_id", "", ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, false, false, false
+                false, true, true, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -76,6 +82,9 @@ public class Tennants_Table extends javax.swing.JPanel {
             jTable2.getColumnModel().getColumn(3).setResizable(false);
             jTable2.getColumnModel().getColumn(4).setResizable(false);
             jTable2.getColumnModel().getColumn(5).setResizable(false);
+            jTable2.getColumnModel().getColumn(6).setResizable(false);
+            jTable2.getColumnModel().getColumn(7).setResizable(false);
+            jTable2.getColumnModel().getColumn(8).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

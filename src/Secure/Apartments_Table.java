@@ -19,16 +19,19 @@ public class Apartments_Table extends javax.swing.JPanel {
     public Apartments_Table() {
         initComponents();
         
+        jTable1.removeColumn(jTable1.getColumnModel().getColumn(0));
+        
         c = new MySqlConnect();
-         ResultSet r = c.query("SELECT unit_name, description, unit_type, monthly_rate FROM apartment_units");
+         ResultSet r = c.query("SELECT id, unit_name, description, unit_type, monthly_rate FROM apartment_units");
          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
          while(r.next()) {
+             String i = r.getString("id");
              String un = r.getString("unit_name");
              String d = r.getString("description");
              String ut = r.getString("unit_type");
              String mr = r.getString("monthly_rate");
-             model.insertRow(jTable1.getRowCount(), new Object[] {un, d, ut, mr, "Edit", "Delete"});
+             model.insertRow(jTable1.getRowCount(), new Object[] {i, un, d, ut, mr, "Edit", "Delete"});
 
 
 
@@ -78,11 +81,11 @@ public class Apartments_Table extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Room No.", "Description", "Status", "Rate/mo.", "", ""
+                "id", "Room No.", "Description", "Status", "Rate/mo.", "", ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -91,13 +94,20 @@ public class Apartments_Table extends javax.swing.JPanel {
         });
         jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 530));
         jTable1.setPreferredSize(new java.awt.Dimension(957, 530));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
             jTable1.getColumnModel().getColumn(5).setResizable(false);
+            jTable1.getColumnModel().getColumn(6).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -111,6 +121,10 @@ public class Apartments_Table extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
