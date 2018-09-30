@@ -5,6 +5,7 @@
  */
 package Secure;
 
+import java.awt.event.*;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
@@ -35,6 +36,23 @@ public class Apartments_Table extends javax.swing.JPanel {
         }catch(SQLException ex) {
             System.out.println(ex);
         }
+        
+        // add mouselistener for table
+        jTable1.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {
+            // double-clicked
+          if (e.getClickCount() == 2) {
+               JTable target = (JTable)e.getSource();
+               int column = target.getSelectedColumn();
+               int row = target.getSelectedRow();
+               
+               // 5th column is delet
+               if (column == 4){
+                   System.out.println(target.getModel().getValueAt(row, 0));
+               }
+          }
+        }
+      });
     }
     
     
