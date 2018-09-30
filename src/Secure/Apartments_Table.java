@@ -5,6 +5,7 @@
  */
 package Secure;
 
+import java.awt.event.*;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
@@ -38,9 +39,42 @@ public class Apartments_Table extends javax.swing.JPanel {
         }catch(SQLException ex) {
             System.out.println(ex);
         }
+        
+        // add mouselistener for table
+        jTable1.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {
+            // double-clicked
+          if (e.getClickCount() == 2) {
+               JTable target = (JTable)e.getSource();
+               int column = target.getSelectedColumn();
+               int row = target.getSelectedRow();
+               
+               // 5th column is delet
+               int idval = Integer.parseInt(target.getModel().getValueAt(row, 0).toString());
+               
+               if (column == 4){
+                   editApartment(idval);
+                   
+               }
+               else if (column == 5){
+                   deleteApartment(idval);
+               }
+          }
+        }
+      });
     }
     
     
+    // Method to Edit Existing Apartment
+    public void editApartment(int id){
+        System.out.println("Edit: "+ id);
+    }
+    
+    // Method to Delete Existing Apartment
+    public void deleteApartment(int id){
+        System.out.println("Delete: "+ id);
+        
+    }
 
     
    
@@ -68,9 +102,16 @@ public class Apartments_Table extends javax.swing.JPanel {
                 "id", "Room No.", "Description", "Status", "Rate/mo.", "", ""
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];

@@ -5,8 +5,10 @@
  */
 package Secure;
 
+import java.awt.event.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -41,8 +43,39 @@ public class Tennants_Table extends javax.swing.JPanel {
         }catch(SQLException ex) {
             System.out.println(ex);
         }
+        
+        // add table event listener
+        jTable2.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {
+            // double-clicked
+          if (e.getClickCount() == 2) {
+               JTable target = (JTable)e.getSource();
+               int column = target.getSelectedColumn();
+               int row = target.getSelectedRow();
+               
+               // 5th column is delet
+               int idval = Integer.parseInt(target.getModel().getValueAt(row, 0).toString());
+               
+               if (column == 5){
+                   editTenant(idval);
+               }
+               else if (column==6){
+                   deleteTenant(idval);
+               }
+          }
+        }
+      });
     }
-
+    
+    //edit Tenant obj to the database
+    public void editTenant(int id){
+        System.out.println("Edit Tenant # "+id);
+    }
+    
+    // delete Tenant obj to the database
+    public void deleteTenant(int id){
+        System.out.println("Delete Tenant # "+id);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
