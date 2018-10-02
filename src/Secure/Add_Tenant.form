@@ -86,10 +86,10 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="birthdate" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="fname" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                                  <Component id="birthdate" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="30" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -275,12 +275,6 @@
               </Properties>
             </Component>
             <Component class="datechooser.beans.DateChooserCombo" name="birthdate">
-              <Properties>
-                <Property name="dch_calSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[330, 180]"/>
-                </Property>
-                <Property name="dch_nothingAllowed" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

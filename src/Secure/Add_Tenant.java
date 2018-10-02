@@ -131,9 +131,6 @@ public class Add_Tenant extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("(Optional)");
 
-        birthdate.setCalendarPreferredSize(new java.awt.Dimension(330, 180));
-        birthdate.setNothingAllowed(false);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,10 +157,10 @@ public class Add_Tenant extends javax.swing.JPanel {
                         .addGap(12, 12, 12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(birthdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel1)
-                            .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(birthdate, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -260,15 +257,15 @@ public class Add_Tenant extends javax.swing.JPanel {
         StringBuilder sb = new StringBuilder();
         
         if(fname.getText().length()==0 || lname.getText().length()==0 || number.getText().length()==0 || rm.getText().length()==0){
-            if (!(Pattern.matches("^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$", email.getText())) || !(Pattern.matches("^[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$", email.getText())) || email.getText().length()!=0) 
+            if ((!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email.getText())) && !(Pattern.matches("^[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email.getText()))) && email.getText().length()!=0) 
             {
             sb.append("Please enter a valid E-mail & ");
             }
             sb.append("You must fill all required field");
             JOptionPane.showMessageDialog(null,sb,"Error",JOptionPane.ERROR_MESSAGE);
         }
-        else if(fname.getText().length()!=0 && lname.getText().length()!=0 && number.getText().length()!=0 && rm.getText().length()!=0){
-            if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email.getText()))) 
+        else if ((!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email.getText())) && !(Pattern.matches("^[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email.getText()))) && email.getText().length()!=0){
+            if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email.getText())) && email.getText().length()!=0) 
             {
             JOptionPane.showMessageDialog(null, "Please enter a valid email", "Error", JOptionPane.ERROR_MESSAGE);
             }
